@@ -15,3 +15,8 @@ Publish
 ```
 ruby mqtt/pub.rb 8266.fun cmd on
 ```
+
+shell
+```
+ruby shell.rb 8266.fun cmd status
+```

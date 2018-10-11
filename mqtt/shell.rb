@@ -5,12 +5,6 @@ host = ARGV[0]
 cmd_topic = ARGV[1]
 state_topic = ARGV[2]
 
-def pub(host,topic,message)
-    MQTT::Client.connect(host) do |sc|
-        sc.publish(topic,message)
-    end
-end
-
 # Subscribe example
 def shell(host,cmd_topic,state_topic)
     MQTT::Client.connect(host) do |c|
@@ -19,9 +13,16 @@ def shell(host,cmd_topic,state_topic)
             puts "#{topic}: #{message}"
             begin
 		    IO.popen(message) do |f|
-		        text = f.gets
-		        #pub(host,state_topic,text)
-		        c.publish(state_topic,text)
+                        text=''
+                        begin
+		            line = f.gets
+                            c.publish(state_topic,line)
+                            text="#{text}\n#{line}"
+		            #pub(host,state_topic,text)
+                         end while line!=nil
+                         c.publish(state_topic,"cmd_end")
+                         #c.publish(state_topic,text)
+                         puts text
 		    end
              rescue
                     puts "error"
