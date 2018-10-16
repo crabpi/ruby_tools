@@ -1,5 +1,3 @@
-install
-
 ```
-sudo gem install ramaze
+gem install sinatra
 ```
