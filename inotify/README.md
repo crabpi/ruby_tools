@@ -20,3 +20,9 @@ moved_from      File moved out of watched directory
 moved_to        File moved into watched directory 
 open            File was opened
 ```
+
+### 运行
+
+```
+ruby notify.rb filename
+```
