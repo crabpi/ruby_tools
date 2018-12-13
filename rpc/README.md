@@ -1,1 +1,1 @@
-gem install bertrem -s http://gemcutter.org
+gem install xmlrpc

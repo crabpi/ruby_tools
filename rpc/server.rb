@@ -6,7 +6,14 @@ module Calc
   end
 end
 
+module Test
+  def hello(name)
+    "hello #{name}"
+  end
+end
+
 EM.run {
   BERTREM::Server.expose(:calc, Calc)
+  BERTREM::Server.expose(:test, Test)
   svc = BERTREM::Server.start('localhost', 9999)
 }
