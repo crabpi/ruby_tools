@@ -33,12 +33,12 @@ card 1: Device [USB Audio Device], device 0: USB Audio [USB Audio]
   Subdevice #0: subdevice #0
 ```
 
-可以看到，USB Audio Device 的 card 为 1 ，Subdevices 是 1。
+可以看到，USB Audio Device 的 card 为 1 ，subdevice 是 0。
 
 如何播放
 
 ```
-aplay x.wav -D plughw:1,1
+aplay x.wav -D plughw:1,0
 ```
 
 ### 附
